@@ -1,0 +1,13 @@
+name: Entitled
+main: cc.isotopestudio.Entitled.Entitled
+
+author: Mars
+description: Entitled
+website: http://isotopestudio.cc
+version: 1.0.0
+
+commands:
+  Entitled:
+    description: Punctual command
+    usage: /<command> - Get Information
+    aliases: chenghao
