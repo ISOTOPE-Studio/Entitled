@@ -1,5 +1,13 @@
+# CRITICAL 暴击
+# ADDITIONAL 攻击伤害
+# LIFE 生命值
+# REGENERATION 生命恢复
+# DODGE 闪避
+# SPEED 移动速度
+# STEADY 击退抗性
+# EXPERIENCE 多倍经验
 Mars:
   lore:
   - 'ISOTOPE Studio'
   attri:
-  -
+  - CRITICAL 5 10
