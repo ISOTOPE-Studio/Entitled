@@ -50,6 +50,10 @@ public class S {
         return String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + s + ChatColor.RESET;
     }
 
+    public static String toItalicYellow(String s) {
+        return String.valueOf(ChatColor.YELLOW) + ChatColor.ITALIC + s + ChatColor.RESET;
+    }
+
     public static String toPrefixRed(String s) {
         return prefix + ChatColor.RED + s + ChatColor.RESET;
     }
@@ -69,7 +73,6 @@ public class S {
     public static String toBoldRed(String s) {
         return String.valueOf(ChatColor.RED) + ChatColor.BOLD + s + ChatColor.RESET;
     }
-
     public static String toPrefixAqua(String s) {
         return prefix + ChatColor.AQUA + s + ChatColor.RESET;
     }

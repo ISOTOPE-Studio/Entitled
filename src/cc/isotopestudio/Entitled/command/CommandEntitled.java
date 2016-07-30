@@ -15,7 +15,7 @@ public class CommandEntitled implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (cmd.getName().equalsIgnoreCase("Entitle")) {
+        if (cmd.getName().equalsIgnoreCase("Entitled")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage(S.toPrefixRed("玩家执行的命令"));
                 return true;
@@ -26,10 +26,13 @@ public class CommandEntitled implements CommandExecutor {
                 return true;
             }
             if (args.length < 1) {
+                player.sendMessage(S.toPrefixGreen("帮助菜单"));
+                player.sendMessage(S.toYellow("/" + label + " get <称号名> - 获得称号物品"));
+                player.sendMessage(S.toYellow("/" + label + " list - 查看称号列表"));
                 return true;
             }
             if (args[0].equalsIgnoreCase("reload")) {
-
+                /*TO-DO*/
                 player.sendMessage(S.toPrefixGreen("重载成功"));
                 return true;
             }
@@ -40,12 +43,12 @@ public class CommandEntitled implements CommandExecutor {
                     return true;
                 }
                 player.getInventory().addItem(title.getItem());
-                player.sendMessage(S.toPrefixGreen("获得"));
+                player.sendMessage(S.toPrefixGreen("获得" + args[1]));
                 return true;
             }
             if (args[0].equalsIgnoreCase("list")) {
                 player.sendMessage(S.toPrefixYellow("称号列表"));
-                player.sendMessage(S.toPrefixGreen(Title.titles.toString()));
+                player.sendMessage(S.toPrefixGreen(Title.titles.keySet().toString()));
                 return true;
             }
             return true;

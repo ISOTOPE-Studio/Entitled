@@ -6,8 +6,17 @@
 # SPEED 移动速度
 # STEADY 击退抗性
 # EXPERIENCE 多倍经验
+# VAMPIRIC 生命偷取
+
 Mars:
   lore:
   - 'ISOTOPE Studio'
   attri:
   - CRITICAL 5 10
+  - ADDITIONAL 5
+  - LIFE 2
+  - REGENERATION 2
+  - DODGE 0.4
+  - SPEED 3
+  - STEADY 2
+  - EXPERIENCE 1.5

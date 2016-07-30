@@ -15,7 +15,8 @@ public enum AttriType {
     DODGE("闪避"),
     SPEED("移动速度"),
     STEADY("击退抗性"),
-    EXPERIENCE("多倍经验");
+    EXPERIENCE("多倍经验"),
+    VAMPIRIC("生命偷取");
 
     final String name;
 
@@ -32,29 +33,32 @@ public enum AttriType {
         String result = "" /*S.toBoldGold(this.toString())*/;
         switch (this) {
             case CRITICAL:
-                result += S.toAqua(
-                        (int) (parameters[0] * 100) + "几率造成" + parameters[1] + "倍伤害");
+                result += S.toAqua(" + " +
+                        (int) (parameters[0] * 100) + "% 几率造成" + parameters[1] + "倍伤害");
                 break;
             case ADDITIONAL:
-                result += S.toAqua("+" + parameters[0] + "攻击伤害");
+                result += S.toAqua(" + " + parameters[0] + " 攻击伤害");
                 break;
             case LIFE:
-                result += S.toAqua("+" + parameters[0] + "生命值");
+                result += S.toAqua(" + " + parameters[0] + " 生命值");
                 break;
             case REGENERATION:
-                result += S.toAqua("+" + parameters[0] + "生命恢复");
+                result += S.toAqua(" + " + parameters[0] + " 生命恢复");
                 break;
             case DODGE:
-                result += S.toAqua((int) (parameters[0] * 100) + "%闪避");
+                result += S.toAqua(" " + (int) (parameters[0] * 100) + "% 闪避");
                 break;
             case SPEED:
-                result += S.toAqua("+" + parameters[0] + "移动速度");
+                result += S.toAqua(" + " + parameters[0] + " 移动速度");
                 break;
             case STEADY:
-                result += S.toAqua("+" + parameters[0] + "击退抗性");
+                result += S.toAqua(" + " + parameters[0] + " 击退抗性");
                 break;
             case EXPERIENCE:
-                result += S.toAqua("" + parameters[0] + "倍经验");
+                result += S.toAqua(" + " + parameters[0] + " 倍经验");
+                break;
+            case VAMPIRIC:
+                result += S.toAqua(" + " + parameters[0] + "% 生命偷取");
                 break;
         }
         return result;
