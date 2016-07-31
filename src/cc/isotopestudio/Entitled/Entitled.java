@@ -18,17 +18,19 @@ public class Entitled extends JavaPlugin {
     public static Entitled plugin;
 
     public static PluginFile entitleFile;
+    public static PluginFile configFile;
 
     @Override
     public void onEnable() {
         plugin = this;
 
+        configFile = new PluginFile(this, "config.yml", "config.yml");
         entitleFile = new PluginFile(this, "entitle.yml", "entitle.yml");
 
         this.getCommand("Entitled").setExecutor(new CommandEntitled());
 
         new UpdateTitles().runTaskLater(this, 1);
-        new TitlesEffectTask().runTaskTimer(this, 2, 3 * 20);
+        new TitlesEffectTask().runTaskTimer(this, 2, configFile.getInt("updateFrequency", 3) * 20);
 
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
 

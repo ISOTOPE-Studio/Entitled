@@ -25,11 +25,12 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPlayerAttack(EntityDamageByEntityEvent event) {
         if (event.isCancelled()) return;
+        double damage = -1;
         if (event.getDamager() instanceof Player) {
             Player player = (Player) event.getDamager();
             Title title = Title.getTitleFromPlayer(player);
             if (title == null) return;
-            double damage = event.getDamage();
+            damage = event.getDamage();
             if (title.getAttriSet().contains(AttriType.CRITICAL)) {
                 if (Math.random() < title.getParameters().get(AttriType.CRITICAL)[0]) {
                     damage *= title.getParameters().get(AttriType.CRITICAL)[1];
@@ -50,6 +51,12 @@ public class PlayerListener implements Listener {
                 if (Math.random() < title.getParameters().get(AttriType.DODGE)[0]) {
                     event.setCancelled(true);
                 }
+            }
+            if (title.getAttriSet().contains(AttriType.DEFENSE)) {
+                if (damage == -1) damage = event.getDamage();
+                damage -= title.getParameters().get(AttriType.DEFENSE)[0];
+                if (damage < 0) damage = 0;
+                event.setDamage(damage);
             }
         }
     }

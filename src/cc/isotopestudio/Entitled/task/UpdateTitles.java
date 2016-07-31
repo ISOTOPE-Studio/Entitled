@@ -2,6 +2,7 @@ package cc.isotopestudio.Entitled.task;
 
 import cc.isotopestudio.Entitled.type.AttriType;
 import cc.isotopestudio.Entitled.type.Title;
+import cc.isotopestudio.Entitled.util.Util;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -22,7 +23,7 @@ public class UpdateTitles extends BukkitRunnable {
         titles.clear();
         for (String name : entitleFile.getKeys(false)) {
             ConfigurationSection section = entitleFile.getConfigurationSection(name);
-            List<String> lore = section.getStringList("lore");
+            List<String> lore = Util.convertColorCode(section.getStringList("lore"));
             Set<AttriType> attriSet = new HashSet<>();
             Map<AttriType, double[]> parameters = new HashMap<>();
 
